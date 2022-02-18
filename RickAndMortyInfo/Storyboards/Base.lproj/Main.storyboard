@@ -24,8 +24,8 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfo-Xw-GLa">
-                                <rect key="frame" x="20" y="440" width="374" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="20" y="440" width="374" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                 <color key="textColor" systemColor="systemBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -65,7 +65,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EpisodeCell" textLabel="jvD-3t-rVC" style="IBUITableViewCellStyleDefault" id="a5H-1n-pYy">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="episode" textLabel="jvD-3t-rVC" style="IBUITableViewCellStyleDefault" id="a5H-1n-pYy">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a5H-1n-pYy" id="NNi-Vr-Shb">
@@ -82,9 +82,6 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.03180805557" green="0.0" blue="0.28461730480000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <connections>
-                                    <segue destination="b76-J2-une" kind="show" identifier="showEpisode" id="cd0-46-oEu"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -93,6 +90,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Episodes" id="6D6-9p-WoM"/>
+                    <connections>
+                        <segue destination="b76-J2-une" kind="show" identifier="showEpisode" id="7HA-lx-6uk"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vt8-qD-4NW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -134,6 +134,7 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.03180805557" green="0.0" blue="0.28461730480000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Uvu-0Y-Gn6" secondAttribute="bottom" constant="10" id="6F6-xs-XKi"/>
                                                 <constraint firstItem="Uvu-0Y-Gn6" firstAttribute="top" secondItem="s1g-Kl-tRr" secondAttribute="top" constant="10" id="8tR-eA-ylT"/>
                                                 <constraint firstItem="gKw-JD-EZx" firstAttribute="top" secondItem="s1g-Kl-tRr" secondAttribute="topMargin" constant="13" id="NZA-Zx-qcA"/>
                                                 <constraint firstItem="Uvu-0Y-Gn6" firstAttribute="leading" secondItem="s1g-Kl-tRr" secondAttribute="leading" constant="20" symbolic="YES" id="S8t-VQ-syI"/>
@@ -142,10 +143,15 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="iVS-nS-AYA" kind="show" identifier="showCharacter" id="sJZ-7i-iix"/>
+                                            <outlet property="characterImageView" destination="Uvu-0Y-Gn6" id="Dua-Bh-9y1"/>
+                                            <outlet property="nameLabel" destination="gKw-JD-EZx" id="Vfb-XL-B8h"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="b76-J2-une" id="kJ3-K6-eVm"/>
+                                    <outlet property="delegate" destination="b76-J2-une" id="XjJ-H0-W9A"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Characters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6p6-qP-CXx">
                                 <rect key="frame" x="158.5" y="197.5" width="97" height="24"/>
@@ -174,6 +180,7 @@
                     <connections>
                         <outlet property="episodeDescriptionLabel" destination="PoS-Ah-Wld" id="kTa-l4-YjU"/>
                         <outlet property="tableView" destination="R5m-co-Z5b" id="stA-Wf-TET"/>
+                        <segue destination="iVS-nS-AYA" kind="show" identifier="showCharacter" id="4lz-ft-mQg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HQf-Tt-Pvk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -195,9 +202,9 @@
                                     <constraint firstAttribute="width" constant="240" id="OAV-zd-Lqq"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kY8-eN-BZN">
-                                <rect key="frame" x="20" y="356" width="374" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kY8-eN-BZN">
+                                <rect key="frame" x="20" y="356" width="374" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                 <color key="textColor" systemColor="systemBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -213,6 +220,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="VRV-BZ-kHz"/>
+                    <connections>
+                        <outlet property="characterImageView" destination="B0c-rf-jRY" id="54p-Rc-PQF"/>
+                        <outlet property="descriptionLabel" destination="kY8-eN-BZN" id="BWQ-NS-VO1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ca7-dg-oGQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -237,6 +248,7 @@
         <!--Character Table View Controller-->
         <scene sceneID="DOY-pV-DGi">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7PT-9Z-Ifh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController id="rvI-2M-CfZ" customClass="CharacterTableViewController" customModule="RickAndMortyInfo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="cfz-FH-P16">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -286,11 +298,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="QLf-Ie-V58">
-                        <barButtonItem key="leftBarButtonItem" title="Previous" id="MYV-ms-XrF"/>
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="mg7-oC-D8G"/>
+                        <barButtonItem key="leftBarButtonItem" title="Prev" id="8z1-gR-4SV">
+                            <connections>
+                                <action selector="updateData:" destination="rvI-2M-CfZ" id="d4o-4c-PYL"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="bw3-2C-cE9"/>
                     </navigationItem>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7PT-9Z-Ifh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1513" y="65"/>
         </scene>

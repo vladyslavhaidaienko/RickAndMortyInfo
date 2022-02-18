@@ -11,7 +11,7 @@ class EpisodesViewController: UITableViewController {
     
     var character: Character!
     var episodes: [Episode] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 70
@@ -34,17 +34,16 @@ class EpisodesViewController: UITableViewController {
         navigationController?.navigationBar.standardAppearance = navBarAppearance
         navigationController?.navigationBar.barTintColor = .white
     }
-    
-    
+
     // MARK: - Table view data source
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         character.episode.count
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EpisodeCell", for: indexPath)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "episode", for: indexPath)
+
         var content = cell.defaultContentConfiguration()
         let episodeURL = character.episode[indexPath.row]
         content.textProperties.color = .white
@@ -59,6 +58,7 @@ class EpisodesViewController: UITableViewController {
                 print(error)
             }
         }
+
         return cell
     }
     
@@ -66,9 +66,11 @@ class EpisodesViewController: UITableViewController {
         let episode = episodes[indexPath.row]
         performSegue(withIdentifier: "showEpisode", sender: episode)
     }
-    
+
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let episodeDetailsVC = segue.destination as? EpisodeDetailsViewController else { return }
+        let episodeDetailsVC = segue.destination as! EpisodeDetailsViewController
         episodeDetailsVC.episode = sender as? Episode
     }
 }
+

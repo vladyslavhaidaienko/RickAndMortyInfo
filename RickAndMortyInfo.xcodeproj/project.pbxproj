@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0517F67027BF6AB5000E7EC8 /* CharacterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0517F66F27BF6AB5000E7EC8 /* CharacterTableViewController.swift */; };
 		057BB80827BEC3E200276020 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057BB80727BEC3E200276020 /* AppDelegate.swift */; };
 		057BB80A27BEC3E200276020 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057BB80927BEC3E200276020 /* SceneDelegate.swift */; };
 		057BB80C27BEC3E200276020 /* CharacterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057BB80B27BEC3E200276020 /* CharacterDetailsViewController.swift */; };
@@ -17,11 +18,11 @@
 		057BB82227BEC52F00276020 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057BB82127BEC52F00276020 /* NetworkManager.swift */; };
 		057BB82627BEDA0A00276020 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057BB82527BEDA0A00276020 /* TableViewCell.swift */; };
 		057BB82927BEDAFB00276020 /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057BB82827BEDAFB00276020 /* EpisodesViewController.swift */; };
-		057BB82B27BEDB2B00276020 /* CharacterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057BB82A27BEDB2B00276020 /* CharacterTableViewController.swift */; };
 		057BB82D27BEDBB200276020 /* EpisodeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057BB82C27BEDBB200276020 /* EpisodeDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0517F66F27BF6AB5000E7EC8 /* CharacterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewController.swift; sourceTree = "<group>"; };
 		057BB80427BEC3E200276020 /* RickAndMortyInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		057BB80727BEC3E200276020 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		057BB80927BEC3E200276020 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,7 +35,6 @@
 		057BB82127BEC52F00276020 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		057BB82527BEDA0A00276020 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		057BB82827BEDAFB00276020 /* EpisodesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
-		057BB82A27BEDB2B00276020 /* CharacterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewController.swift; sourceTree = "<group>"; };
 		057BB82C27BEDBB200276020 /* EpisodeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,7 +125,7 @@
 		057BB82427BEC55200276020 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				057BB82A27BEDB2B00276020 /* CharacterTableViewController.swift */,
+				0517F66F27BF6AB5000E7EC8 /* CharacterTableViewController.swift */,
 				057BB80B27BEC3E200276020 /* CharacterDetailsViewController.swift */,
 				057BB82827BEDAFB00276020 /* EpisodesViewController.swift */,
 				057BB82C27BEDBB200276020 /* EpisodeDetailsViewController.swift */,
@@ -213,12 +213,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				057BB81C27BEC42300276020 /* RickAndMorty.swift in Sources */,
+				0517F67027BF6AB5000E7EC8 /* CharacterTableViewController.swift in Sources */,
 				057BB80C27BEC3E200276020 /* CharacterDetailsViewController.swift in Sources */,
 				057BB82927BEDAFB00276020 /* EpisodesViewController.swift in Sources */,
 				057BB82227BEC52F00276020 /* NetworkManager.swift in Sources */,
 				057BB82627BEDA0A00276020 /* TableViewCell.swift in Sources */,
 				057BB82D27BEDBB200276020 /* EpisodeDetailsViewController.swift in Sources */,
-				057BB82B27BEDB2B00276020 /* CharacterTableViewController.swift in Sources */,
 				057BB80827BEC3E200276020 /* AppDelegate.swift in Sources */,
 				057BB80A27BEC3E200276020 /* SceneDelegate.swift in Sources */,
 			);

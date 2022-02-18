@@ -20,7 +20,7 @@ class EpisodeDetailsViewController: UIViewController {
             }
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setCharacters()
@@ -35,7 +35,7 @@ class EpisodeDetailsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let detailsVC = segue.destination as? CharacterDetailsViewController else { return }
+        let detailsVC = segue.destination as! CharacterDetailsViewController
         detailsVC.character = sender as? Character
     }
     
@@ -48,6 +48,7 @@ class EpisodeDetailsViewController: UIViewController {
     }
 }
 
+// MARK: - Table view data source
 extension EpisodeDetailsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         episode.characters.count
@@ -63,6 +64,7 @@ extension EpisodeDetailsViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - Table view delegate
 extension EpisodeDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

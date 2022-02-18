@@ -2,13 +2,14 @@
 //  CharacterTableViewController.swift
 //  RickAndMortyInfo
 //
-//  Created by Vladyslav Haidaienko on 17.02.2022.
+//  Created by Vladyslav Haidaienko on 18.02.2022.
 //
 
 import UIKit
 
 class CharacterTableViewController: UITableViewController {
     
+    //MARK: Private properties
     private var rickAndMorty: RickAndMorty?
     private let searchController = UISearchController(searchResultsController: nil)
     private var filteredCharacter: [Character] = []
@@ -19,6 +20,8 @@ class CharacterTableViewController: UITableViewController {
     private var isFiltering: Bool {
         return searchController.isActive && !searchBarIsEmpty
     }
+    
+    // MARK: - UIViewController Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,10 +44,11 @@ class CharacterTableViewController: UITableViewController {
         
         let character = isFiltering ? filteredCharacter[indexPath.row] : rickAndMorty?.results[indexPath.row]
         cell.configure(with: character)
-        
+    
         return cell
     }
     
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
         let character = isFiltering ? filteredCharacter[indexPath.row] : rickAndMorty?.results[indexPath.row]
@@ -55,10 +59,12 @@ class CharacterTableViewController: UITableViewController {
     
     @IBAction func updateData(_ sender: UIBarButtonItem) {
         sender.tag == 1
-        ? fetchData(from: rickAndMorty?.info.next)
-        : fetchData(from: rickAndMorty?.info.prev)
+            ? fetchData(from: rickAndMorty?.info.next)
+            : fetchData(from: rickAndMorty?.info.prev)
     }
     
+    
+    // MARK: - Private methods
     private func setupSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -73,21 +79,24 @@ class CharacterTableViewController: UITableViewController {
         }
     }
     
+    // Setup navigation bar
     private func setupNavigationBar() {
         
         title = "Rick & Morty"
         navigationController?.navigationBar.prefersLargeTitles = true
         
+        // Navigation bar appearance
         if #available(iOS 13.0, *) {
             let navBarAppearance = UINavigationBarAppearance()
             navBarAppearance.configureWithOpaqueBackground()
             navBarAppearance.backgroundColor = .black
             navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
             navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-            
+
             navigationController?.navigationBar.standardAppearance = navBarAppearance
             navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
         }
+        
     }
     
     private func fetchData(from url: String?) {
@@ -96,9 +105,9 @@ class CharacterTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-    
 }
 
+// MARK: - UISearchResultsUpdating
 extension CharacterTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
@@ -108,6 +117,8 @@ extension CharacterTableViewController: UISearchResultsUpdating {
         filteredCharacter = rickAndMorty?.results.filter { character in
             character.name.lowercased().contains(searchText.lowercased())
         } ?? []
+        
         tableView.reloadData()
     }
 }
+

@@ -20,14 +20,15 @@ class NetworkManager {
     private init() {}
     
     func fetchData(from url: String?, with completion: @escaping(RickAndMorty) -> Void) {
-        guard let stringUrl = url else { return }
-        guard let url = URL(string: stringUrl) else { return }
+        guard let stringURL = url else { return }
+        guard let url = URL(string: stringURL) else { return }
         
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data else {
                 print(error?.localizedDescription ?? "No error description")
                 return
             }
+            
             do {
                 let rickAndMorty = try JSONDecoder().decode(RickAndMorty.self, from: data)
                 DispatchQueue.main.async {
@@ -52,6 +53,7 @@ class NetworkManager {
                 print(error?.localizedDescription ?? "No error description")
                 return
             }
+            
             do {
                 let episode = try JSONDecoder().decode(Episode.self, from: data)
                 DispatchQueue.main.async {
@@ -68,9 +70,10 @@ class NetworkManager {
         
         URLSession.shared.dataTask(with: url) { (data, _, error) in
             guard let data = data else {
-                print(error?.localizedDescription ?? "no description")
+                print(error?.localizedDescription ?? "No error description")
                 return
             }
+            
             do {
                 let result = try JSONDecoder().decode(Character.self, from: data)
                 DispatchQueue.main.async {

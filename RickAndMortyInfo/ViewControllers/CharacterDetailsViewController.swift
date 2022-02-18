@@ -9,6 +9,7 @@ import UIKit
 
 class CharacterDetailsViewController: UIViewController {
     
+    // MARK: - IBOutlets
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var characterImageView: UIImageView! {
         didSet {
@@ -16,9 +17,12 @@ class CharacterDetailsViewController: UIViewController {
         }
     }
     
+    // MARK: - Public properties
     var character: Character!
-    private var spinnerView = UIActivityIndicatorView()
     
+    private var spinnerView = UIActivityIndicatorView()
+        
+    // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         if let topItem = navigationController?.navigationBar.topItem {
