@@ -125,10 +125,10 @@
 		057BB82427BEC55200276020 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				057BB82A27BEDB2B00276020 /* CharacterTableViewController.swift */,
 				057BB80B27BEC3E200276020 /* CharacterDetailsViewController.swift */,
 				057BB82827BEDAFB00276020 /* EpisodesViewController.swift */,
 				057BB82C27BEDBB200276020 /* EpisodeDetailsViewController.swift */,
-				057BB82A27BEDB2B00276020 /* CharacterTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -371,7 +371,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9VH5WM27N5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RickAndMortyInfo/Info.plist;
+				INFOPLIST_FILE = RickAndMortyInfo/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -400,7 +400,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9VH5WM27N5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RickAndMortyInfo/Info.plist;
+				INFOPLIST_FILE = RickAndMortyInfo/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
